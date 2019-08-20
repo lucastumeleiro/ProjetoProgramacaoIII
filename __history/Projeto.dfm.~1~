@@ -1,0 +1,40 @@
+object frmProjeto: TfrmProjeto
+  Left = 0
+  Top = 0
+  Caption = 'Projeto'
+  ClientHeight = 521
+  ClientWidth = 527
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 527
+    Height = 521
+    ActivePage = pgProjeto
+    Align = alClient
+    TabOrder = 0
+    ExplicitHeight = 396
+    object pgProjeto: TTabSheet
+      Caption = 'Dados do Projeto'
+      ExplicitLeft = 8
+      ExplicitTop = 28
+      ExplicitHeight = 368
+    end
+    object pgFuncProjeto: TTabSheet
+      Caption = 'Funcion'#225'rios do Projeto'
+      ImageIndex = 1
+      ExplicitLeft = -108
+      ExplicitTop = -40
+      ExplicitWidth = 281
+      ExplicitHeight = 165
+    end
+  end
+end

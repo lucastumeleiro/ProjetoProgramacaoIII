@@ -1,0 +1,127 @@
+unit Funcionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls, framebotoes, Vcl.Grids, Vcl.ComCtrls, Vcl.Mask, Data.DB,
+  Vcl.DBGrids;
+
+type
+  TfrmFuncionario = class(TForm)
+    Image1: TImage;
+    lbCodigo: TLabel;
+    lbNome: TLabel;
+    lbEndereco: TLabel;
+    edtCodigo: TEdit;
+    edtNome: TEdit;
+    edtEndereco: TEdit;
+    lbCPF: TLabel;
+    edtCPF: TMaskEdit;
+    lbNascimento: TLabel;
+    edtNascimento: TDateTimePicker;
+    lbTelefone: TLabel;
+    edtTelefone: TMaskEdit;
+    lbSalario: TLabel;
+    lbSexo: TRadioGroup;
+    lbCargo: TLabel;
+    cbCargo: TComboBox;
+    edtSalario: TEdit;
+    TFrame11: TFrame1;
+    Obs: TMemo;
+    DBGrid1: TDBGrid;
+    procedure TFrame11btnNovoClick(Sender: TObject);
+    procedure TFrame11btnSalvarClick(Sender: TObject);
+    procedure TFrame11btnEditarClick(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure Habilita();
+    procedure Desabilita();
+    procedure Limpa();
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFuncionario: TfrmFuncionario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmFuncionario.DBGrid1CellClick(Column: TColumn);
+begin
+  edtNome.Enabled:= FALSE;
+  //trazer dados para nome
+  edtnome.SetFocus;
+  TFrame11.btnNovo.Enabled:= FALSE;
+  TFrame11.btnSalvar.Enabled:= FALSE;
+  TFrame11.btnEditar.Enabled:= TRUE;
+  TFrame11.btnExcluir.Enabled:= TRUE;
+end;
+
+procedure TfrmFuncionario.TFrame11btnEditarClick(Sender: TObject);
+begin
+  edtNome.Enabled:= TRUE;
+  TFrame11.btnNovo.Enabled:= TRUE;
+  TFrame11.btnSalvar.Enabled:= TRUE;
+  TFrame11.btnEditar.Enabled:= FALSE;
+  TFrame11.btnExcluir.Enabled:= FALSE;
+end;
+
+procedure TfrmFuncionario.TFrame11btnNovoClick(Sender: TObject);
+begin
+  edtNome.Enabled:= TRUE;
+  edtNome.Clear;
+  edtNome.SetFocus;
+  TFrame11.btnNovo.Enabled:= FALSE;
+  TFrame11.btnSalvar.Enabled:= TRUE;
+  TFrame11.btnEditar.Enabled:= FALSE;
+  TFrame11.btnExcluir.Enabled:= FALSE;
+end;
+
+procedure TfrmFuncionario.TFrame11btnSalvarClick(Sender: TObject);
+begin
+  if(edtNome.Text='')then
+  begin
+    ShowMessage('O nome precisa ser preenchido!');
+    edtNome.SetFocus;
+  end
+  else if (edtCPF.Text='   .   .   -  ') then
+  begin
+    ShowMessage('O CPF precisa ser preenchido!');
+    edtCPF.SetFocus;
+  end
+  else if (edtEndereco.Text='') then
+  begin
+    ShowMessage('O Endereço precisa ser preenchido!');
+    edtEndereco.SetFocus;
+  end
+  else
+  begin
+    //Salva no banco
+    ShowMessage('Dados Salvos!');
+    edtNome.Enabled:= TRUE;
+    TFrame11.btnNovo.Enabled:= TRUE;
+    TFrame11.btnSalvar.Enabled:= False;
+    TFrame11.btnEditar.Enabled:= False;
+    TFrame11.btnExcluir.Enabled:=False;
+  end;
+end;
+
+procedure Habilita();
+Begin
+   edt
+End;
+procedure Desabilita();
+Begin
+
+End;
+procedure Limpa();
+Begin
+
+End;
+
+end.

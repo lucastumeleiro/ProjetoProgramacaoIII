@@ -1,0 +1,32 @@
+unit Cargo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Imaging.jpeg, Vcl.ExtCtrls, framebotoes;
+
+type
+  TfrmCargo = class(TForm)
+    Image1: TImage;
+    lb_Codigo: TLabel;
+    lb_Nome: TLabel;
+    edt_codigo: TEdit;
+    edt_Nome: TEdit;
+    DBGrid1: TDBGrid;
+    TFrame11: TFrame1;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCargo: TfrmCargo;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,96 @@
+unit FormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TfrmFormPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastros1: TMenuItem;
+    Funcionarios1: TMenuItem;
+    Cargos1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Sair1: TMenuItem;
+    Image1: TImage;
+    lbUsuario: TLabel;
+    lbNomeUsuario: TLabel;
+    Panel1: TPanel;
+    btn_Funcionario: TSpeedButton;
+    btnCargo: TSpeedButton;
+    Projetos1: TMenuItem;
+    btnProjeto: TSpeedButton;
+    procedure Sair1Click(Sender: TObject);
+    procedure Cargos1Click(Sender: TObject);
+    procedure Funcionarios1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btn_FuncionarioClick(Sender: TObject);
+    procedure btnCargoClick(Sender: TObject);
+    procedure Projeto1Click(Sender: TObject);
+    procedure Projetos1Click(Sender: TObject);
+    procedure btnProjetoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFormPrincipal: TfrmFormPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses login, Cargo, funcionario, modulo, Projeto;
+
+procedure TfrmFormPrincipal.btnProjetoClick(Sender: TObject);
+begin
+  frmProjeto:= TfrmProjeto.Create(self);
+  frmProjeto.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.btn_FuncionarioClick(Sender: TObject);
+begin
+ frmFuncionario:= TfrmFuncionario.Create(self);
+ frmFuncionario.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Cargos1Click(Sender: TObject);
+begin
+  frmCargo:= TfrmCargo.Create(self);
+  frmCargo.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.FormShow(Sender: TObject);
+begin
+  lbUsuario.Caption:=usuario;
+end;
+
+procedure TfrmFormPrincipal.Funcionarios1Click(Sender: TObject);
+begin
+  frmFuncionario:= TfrmFuncionario.Create(self);
+  frmFuncionario.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Projetos1Click(Sender: TObject);
+begin
+  frmProjeto:= TfrmProjeto.Create(self);
+  frmProjeto.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Sair1Click(Sender: TObject);
+begin
+  frmFormPrincipal.Close;
+end;
+
+procedure TfrmFormPrincipal.btnCargoClick(Sender: TObject);
+begin
+  frmCargo:= TfrmCargo.Create(self);
+  frmCargo.ShowModal;
+end;
+
+end.

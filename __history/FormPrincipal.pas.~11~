@@ -1,0 +1,54 @@
+unit FormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg;
+
+type
+  TfrmFormPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastros1: TMenuItem;
+    Funcionarios1: TMenuItem;
+    Cargos1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Sair1: TMenuItem;
+    Image1: TImage;
+    procedure Sair1Click(Sender: TObject);
+    procedure Cargos1Click(Sender: TObject);
+    procedure Funcionarios1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFormPrincipal: TfrmFormPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses login, Cargo, funcionario;
+
+procedure TfrmFormPrincipal.Cargos1Click(Sender: TObject);
+begin
+  frmCargo:= TfrmCargo.Create(self);
+  frmCargo.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Funcionarios1Click(Sender: TObject);
+begin
+  frmFuncionario:= TfrmFuncionario.Create(self);
+  frmFuncionario.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Sair1Click(Sender: TObject);
+begin
+  frmFormPrincipal.Close;
+end;
+
+end.
