@@ -148,7 +148,8 @@ object frmCargo: TfrmCargo
     7C07F0007FC7F0007FC7F800FFC7FFFFFFC7FF0FFCC7FE030047FE030047FC01
     FC47FC01FFC7FC01FFC7FE03FFC7FE060007FF8E0007FFFFFFFFFFFFFFFF}
   OldCreateOrder = False
-  Position = poOwnerFormCenter
+  Position = poMainFormCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -550,8 +551,9 @@ object frmCargo: TfrmCargo
   object edt_codigo: TEdit
     Left = 99
     Top = 45
-    Width = 38
+    Width = 54
     Height = 21
+    NumbersOnly = True
     TabOrder = 0
   end
   object edt_Nome: TEdit
@@ -562,15 +564,42 @@ object frmCargo: TfrmCargo
     TabOrder = 1
   end
   object DBGrid1: TDBGrid
-    Left = 48
-    Top = 128
-    Width = 247
-    Height = 120
+    Left = 8
+    Top = 112
+    Width = 342
+    Height = 145
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
+  end
+  inline TFrame11: TFrame1
+    Left = 0
+    Top = 275
+    Width = 357
+    Height = 85
+    TabOrder = 3
+    ExplicitTop = 275
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+    inherited btnNovo: TButton
+      OnClick = TFrame11btnNovoClick
+    end
+    inherited btnSalvar: TButton
+      Enabled = False
+      OnClick = TFrame11btnSalvarClick
+    end
+    inherited btnEditar: TButton
+      Enabled = False
+      OnClick = TFrame11btnEditarClick
+    end
+    inherited btnExcluir: TButton
+      Enabled = False
+      OnClick = TFrame11btnExcluirClick
+    end
   end
 end

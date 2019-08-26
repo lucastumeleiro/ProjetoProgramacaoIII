@@ -55,8 +55,9 @@ implementation
 
 procedure TfrmFuncionario.DBGrid1CellClick(Column: TColumn);
 begin
-  Desabilita();
+  edtNome.Enabled:= FALSE;
   //trazer dados para nome
+  edtnome.SetFocus;
   TFrame11.btnNovo.Enabled:= FALSE;
   TFrame11.btnSalvar.Enabled:= FALSE;
   TFrame11.btnEditar.Enabled:= TRUE;
@@ -103,25 +104,13 @@ end;
 
 procedure TfrmFuncionario.TFrame11btnExcluirClick(Sender: TObject);
 begin
-if (MessageDlg('Deseja realmente excluir?',mtConfirmation,mbYesNo,0)= mryes)then
-  begin
-    //excluir do banco
-  end
-  else
-  begin
-    Limpa();
-    TFrame11.btnNovo.Enabled:= TRUE;
-    TFrame11.btnSalvar.Enabled:= FALSE;
-    TFrame11.btnEditar.Enabled:= FALSE;
-    TFrame11.btnExcluir.Enabled:= FALSE;
-  end;
+Limpa();
 end;
 
 procedure TfrmFuncionario.TFrame11btnNovoClick(Sender: TObject);
 begin
   Limpa();
   Habilita();
-  edtNome.SetFocus;
   TFrame11.btnNovo.Enabled:= FALSE;
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;

@@ -56,7 +56,7 @@ end;
 
 procedure TfrmCargo.FormCreate(Sender: TObject);
 begin
-  Desabilita();
+  edt_Nome.Enabled:= FALSE;
   TFrame11.btnNovo.Enabled:= TRUE;
   TFrame11.btnSalvar.Enabled:= FALSE;
   TFrame11.btnEditar.Enabled:= FALSE;
@@ -102,7 +102,7 @@ procedure TfrmCargo.TFrame11btnNovoClick(Sender: TObject);
 begin
   Limpa();
   Habilita();
-  edtnome.SetFocus;
+  edt_nome.SetFocus;
   TFrame11.btnNovo.Enabled:= FALSE;
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;

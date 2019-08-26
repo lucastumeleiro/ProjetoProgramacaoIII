@@ -562,6 +562,7 @@ object frmFuncionario: TfrmFuncionario
     end
     inherited btnExcluir: TButton
       Enabled = False
+      OnClick = TFrame11btnExcluirClick
     end
   end
   object Obs: TMemo
@@ -576,7 +577,7 @@ object frmFuncionario: TfrmFuncionario
   end
   object DBGrid1: TDBGrid
     Left = 32
-    Top = 215
+    Top = 220
     Width = 601
     Height = 120
     TabOrder = 10
