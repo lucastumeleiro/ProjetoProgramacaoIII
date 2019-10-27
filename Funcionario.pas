@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.jpeg,
   Vcl.ExtCtrls, framebotoes, Vcl.Grids, Vcl.ComCtrls, Vcl.Mask, Data.DB,
-  Vcl.DBGrids;
+  Vcl.DBGrids, System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors,
+  Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TfrmFuncionario = class(TForm)
@@ -31,6 +32,20 @@ type
     TFrame11: TFrame1;
     Obs: TMemo;
     DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    LinkControlToField2: TLinkControlToField;
+    LinkControlToField3: TLinkControlToField;
+    LinkControlToField4: TLinkControlToField;
+    LinkControlToField5: TLinkControlToField;
+    LinkControlToField6: TLinkControlToField;
+    LinkControlToField7: TLinkControlToField;
+    LinkPropertyToFieldCaption: TLinkPropertyToField;
+    BindSourceDB2: TBindSourceDB;
+    LinkFillControlToField1: TLinkFillControlToField;
+    BindSourceDB3: TBindSourceDB;
     procedure TFrame11btnNovoClick(Sender: TObject);
     procedure TFrame11btnSalvarClick(Sender: TObject);
     procedure TFrame11btnEditarClick(Sender: TObject);
@@ -53,11 +68,13 @@ implementation
 
 {$R *.dfm}
 
+uses modulo;
+
 procedure TfrmFuncionario.DBGrid1CellClick(Column: TColumn);
 begin
   Desabilita();
   //trazer dados para nome
-  TFrame11.btnNovo.Enabled:= FALSE;
+  TFrame11.btnNovo.Enabled:= TRUE;
   TFrame11.btnSalvar.Enabled:= FALSE;
   TFrame11.btnEditar.Enabled:= TRUE;
   TFrame11.btnExcluir.Enabled:= TRUE;
@@ -81,6 +98,8 @@ begin
   edtNascimento.Enabled:= TRUE;
   edtTelefone.Enabled:= TRUE;
   edtSalario.Enabled:= TRUE;
+  lbSexo.Enabled:= TRUE;
+  cbCargo.Enabled:= TRUE;
 end;
 
 procedure TfrmFuncionario.Limpa;
@@ -99,13 +118,14 @@ begin
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;
   TFrame11.btnExcluir.Enabled:= FALSE;
+  DataModule1.FDFuncionario.Edit;
 end;
 
 procedure TfrmFuncionario.TFrame11btnExcluirClick(Sender: TObject);
 begin
 if (MessageDlg('Deseja realmente excluir?',mtConfirmation,mbYesNo,0)= mryes)then
   begin
-    //excluir do banco
+    DataModule1.FDFuncionario.Delete;
   end
   else
   begin
@@ -126,6 +146,7 @@ begin
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;
   TFrame11.btnExcluir.Enabled:= FALSE;
+  DataModule1.FDFuncionario.Insert;
 end;
 
 procedure TfrmFuncionario.TFrame11btnSalvarClick(Sender: TObject);
@@ -147,7 +168,8 @@ begin
   end
   else
   begin
-    //Salva no banco
+    DataModule1.FDFuncionario.Post;
+    DataModule1.FDFuncionario.Refresh;
     ShowMessage('Dados Salvos!');
     Desabilita();
     TFrame11.btnNovo.Enabled:= TRUE;

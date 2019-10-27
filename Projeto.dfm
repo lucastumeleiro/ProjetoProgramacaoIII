@@ -3201,14 +3201,8 @@ object frmProjeto: TfrmProjeto
     ActivePage = pgProjeto
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 527
-    ExplicitHeight = 396
     object pgProjeto: TTabSheet
       Caption = 'Dados do Projeto'
-      ExplicitLeft = 8
-      ExplicitTop = 28
-      ExplicitWidth = 519
-      ExplicitHeight = 368
       object lbCodigo: TLabel
         Left = 16
         Top = 16
@@ -3330,10 +3324,6 @@ object frmProjeto: TfrmProjeto
     object pgFuncProjeto: TTabSheet
       Caption = 'Funcion'#225'rios do Projeto'
       ImageIndex = 1
-      ExplicitLeft = -108
-      ExplicitTop = -40
-      ExplicitWidth = 281
-      ExplicitHeight = 165
     end
   end
 end

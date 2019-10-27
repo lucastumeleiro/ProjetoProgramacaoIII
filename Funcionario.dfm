@@ -478,9 +478,9 @@ object frmFuncionario: TfrmFuncionario
     TabOrder = 5
   end
   object edtCPF: TMaskEdit
-    Left = 88
+    Left = 87
     Top = 48
-    Width = 114
+    Width = 113
     Height = 21
     Enabled = False
     EditMask = '!000\.000\.000\-00;1;_'
@@ -493,15 +493,13 @@ object frmFuncionario: TfrmFuncionario
     Top = 48
     Width = 119
     Height = 21
-    Date = 43689.000000000000000000
-    Time = 0.857618807873223000
     Enabled = False
     TabOrder = 3
   end
   object edtTelefone: TMaskEdit
     Left = 514
     Top = 48
-    Width = 119
+    Width = 117
     Height = 21
     Enabled = False
     EditMask = '!\(99\)000-0000;1;_'
@@ -514,7 +512,6 @@ object frmFuncionario: TfrmFuncionario
     Top = 102
     Width = 177
     Height = 32
-    Caption = 'Sexo: '
     Columns = 2
     Enabled = False
     Items.Strings = (
@@ -580,6 +577,7 @@ object frmFuncionario: TfrmFuncionario
     Top = 220
     Width = 601
     Height = 120
+    DataSource = DataModule1.DSFuncionario
     TabOrder = 10
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -587,5 +585,104 @@ object frmFuncionario: TfrmFuncionario
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.FDFuncionario
+    Left = 576
+    Top = 344
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSource = DataSource1
+    ScopeMappings = <>
+    Left = 624
+    Top = 344
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'codfun'
+      Control = edtCodigo
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'nomefun'
+      Control = edtNome
+      Track = True
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'cpffun'
+      Control = edtCPF
+      Track = False
+    end
+    object LinkControlToField4: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'datanascfun'
+      Control = edtNascimento
+      Track = True
+    end
+    object LinkControlToField5: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'salariofun'
+      Control = edtSalario
+      Track = True
+    end
+    object LinkControlToField6: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'fonefun'
+      Control = edtTelefone
+      Track = False
+    end
+    object LinkControlToField7: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'endfun'
+      Control = edtEndereco
+      Track = True
+    end
+    object LinkPropertyToFieldCaption: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'sexofun'
+      Component = lbSexo
+      ComponentProperty = 'Caption'
+    end
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'codcargofun'
+      Control = cbCargo
+      Track = True
+      FillDataSource = BindSourceDB3
+      FillValueFieldName = 'codcargo'
+      FillDisplayFieldName = 'nomecargo'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSet = DataModule1.FDFuncionario
+    ScopeMappings = <>
+    Left = 576
+    Top = 392
+  end
+  object BindSourceDB3: TBindSourceDB
+    DataSet = DataModule1.FDCargo
+    ScopeMappings = <>
+    Left = 624
+    Top = 392
   end
 end

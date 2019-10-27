@@ -568,6 +568,7 @@ object frmCargo: TfrmCargo
     Top = 112
     Width = 342
     Height = 145
+    DataSource = DataSource1
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -594,14 +595,43 @@ object frmCargo: TfrmCargo
       OnClick = TFrame11btnSalvarClick
     end
     inherited btnEditar: TButton
-      Left = 184
       Enabled = False
       OnClick = TFrame11btnEditarClick
-      ExplicitLeft = 184
     end
     inherited btnExcluir: TButton
       Enabled = False
       OnClick = TFrame11btnExcluirClick
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.FDCargo
+    Left = 312
+    Top = 8
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSource = DataSource1
+    ScopeMappings = <>
+    Left = 168
+    Top = 192
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 252
+    Top = 13
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'codcargo'
+      Control = edt_codigo
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'nomecargo'
+      Control = edtNome
+      Track = True
     end
   end
 end

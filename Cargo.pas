@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.Imaging.jpeg, Vcl.ExtCtrls, framebotoes;
+  Vcl.StdCtrls, Vcl.Imaging.jpeg, Vcl.ExtCtrls, framebotoes, System.Rtti,
+  System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
+  Vcl.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TfrmCargo = class(TForm)
@@ -16,6 +18,11 @@ type
     edtNome: TEdit;
     DBGrid1: TDBGrid;
     TFrame11: TFrame1;
+    DataSource1: TDataSource;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkControlToField1: TLinkControlToField;
+    LinkControlToField2: TLinkControlToField;
     procedure FormCreate(Sender: TObject);
     procedure TFrame11btnNovoClick(Sender: TObject);
     procedure TFrame11btnSalvarClick(Sender: TObject);
@@ -39,11 +46,13 @@ implementation
 
 {$R *.dfm}
 
+uses modulo;
+
 procedure TfrmCargo.DBGrid1CellClick(Column: TColumn);
 begin
-  //trazer dados para nome
+
   Desabilita();
-  TFrame11.btnNovo.Enabled:= FALSE;
+  TFrame11.btnNovo.Enabled:= TRUE;
   TFrame11.btnSalvar.Enabled:= FALSE;
   TFrame11.btnEditar.Enabled:= TRUE;
   TFrame11.btnExcluir.Enabled:= TRUE;
@@ -80,13 +89,14 @@ begin
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;
   TFrame11.btnExcluir.Enabled:= FALSE;
+  DataModule1.FDCargo.Edit;
 end;
 
 procedure TfrmCargo.TFrame11btnExcluirClick(Sender: TObject);
 begin
   if (MessageDlg('Deseja realmente excluir?',mtConfirmation,mbYesNo,0)= mryes)then
   begin
-    //excluir do banco
+    DataModule1.FDCargo.Delete;
   end
   else
   begin
@@ -107,6 +117,7 @@ begin
   TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= FALSE;
   TFrame11.btnExcluir.Enabled:= FALSE;
+  DataModule1.FDCargo.Insert;
 end;
 
 procedure TfrmCargo.TFrame11btnSalvarClick(Sender: TObject);
@@ -121,6 +132,8 @@ begin
     //Salva no banco
     ShowMessage('Dados Salvos!');
     Desabilita();
+    DataModule1.FDCargo.Post;
+    DataModule1.FDCargo.Refresh;
     TFrame11.btnNovo.Enabled:= TRUE;
     TFrame11.btnSalvar.Enabled:= False;
     TFrame11.btnEditar.Enabled:= False;
