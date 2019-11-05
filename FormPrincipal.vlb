@@ -1,0 +1,15 @@
+﻿[frmProjeto.DataSource2]
+Visible=False
+
+[frmProjeto.DataSource3]
+Visible=False
+
+[frmFuncionario.DataSource1]
+Visible=False
+
+[DataModule1.FDCargo]
+Visible=False
+
+[DataModule1.FDFuncionario]
+Visible=False
+

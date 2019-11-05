@@ -79,14 +79,14 @@ Coordinates=10,125,107,51
 Coordinates=172,10,88,51
 
 [DataSource1]
-Coordinates=820,20,77,33
+Coordinates=910,20,77,33
 Visible=True
 
 []
 Coordinates=306,248,82,33
 
 [BindSourceDB1]
-Coordinates=907,20,92,231
+Coordinates=1060,20,92,249
 
 [BindingsList1]
 Coordinates=113,80,82,33
@@ -106,8 +106,30 @@ Coordinates=340,400,124,33
 Visible=False
 
 [BindSourceDB2]
-Coordinates=680,240,138,231
+Coordinates=660,300,138,249
 
 [BindSourceDB3]
 Coordinates=340,360,112,105
+
+[DataModule1.DSUsuario]
+Coordinates=760,559,133,33
+
+[DataModule1.DSProjeto]
+Coordinates=0,0,131,33
+
+[DataModule1.FDProjeto]
+Coordinates=181,343,130,177
+
+[DataModule1.FDUsuario]
+Coordinates=897,339,133,69
+
+[DataModule1.DSFunProj]
+Coordinates=22,343,134,33
+
+[DataModule1.FDFunProj]
+Coordinates=680,0,165,123
+Visible=True
+
+[DataModule1.FDFunProjDados]
+Coordinates=280,0,139,87
 

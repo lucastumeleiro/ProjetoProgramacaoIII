@@ -1541,6 +1541,7 @@ object frmFormPrincipal: TfrmFormPrincipal
     end
     object Relatrios1: TMenuItem
       Caption = 'Relat'#243'rios'
+      OnClick = Relatrios1Click
     end
     object Sair1: TMenuItem
       Caption = 'Sair'

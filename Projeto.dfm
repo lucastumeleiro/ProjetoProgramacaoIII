@@ -3193,12 +3193,21 @@ object frmProjeto: TfrmProjeto
   Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object lbdescGrid: TLabel
+    Left = 56
+    Top = 120
+    Width = 160
+    Height = 13
+    Caption = 'Funcion'#225'rios atuando no Projeto:'
+    Color = clDefault
+    ParentColor = False
+  end
   object PageControl1: TPageControl
     Left = 0
     Top = 0
     Width = 552
     Height = 497
-    ActivePage = pgProjeto
+    ActivePage = pgFuncProjeto
     Align = alClient
     TabOrder = 0
     object pgProjeto: TTabSheet
@@ -3250,7 +3259,9 @@ object frmProjeto: TfrmProjeto
         Top = 13
         Width = 65
         Height = 21
+        Enabled = False
         TabOrder = 0
+        Text = '3'
       end
       object edtTitulo: TEdit
         Left = 72
@@ -3259,15 +3270,16 @@ object frmProjeto: TfrmProjeto
         Height = 21
         Enabled = False
         TabOrder = 1
+        Text = 'sdfdsf'
       end
-      object Obs: TMemo
+      object lbObs: TMemo
         Left = 72
         Top = 67
         Width = 441
         Height = 89
         Enabled = False
         Lines.Strings = (
-          'Obs')
+          'sadfsdf')
         TabOrder = 2
       end
       object DateInicio: TDateTimePicker
@@ -3275,8 +3287,6 @@ object frmProjeto: TfrmProjeto
         Top = 162
         Width = 121
         Height = 21
-        Date = 43696.000000000000000000
-        Time = 0.843518194444186500
         Enabled = False
         TabOrder = 3
       end
@@ -3285,8 +3295,6 @@ object frmProjeto: TfrmProjeto
         Top = 189
         Width = 121
         Height = 21
-        Date = 43696.000000000000000000
-        Time = 0.843518194444186500
         Enabled = False
         TabOrder = 4
       end
@@ -3297,6 +3305,11 @@ object frmProjeto: TfrmProjeto
         Height = 21
         Enabled = False
         TabOrder = 5
+        Text = '2'
+        Items.Strings = (
+          'Lucas2'
+          'asd'
+          'Lucas')
       end
       object checkboxConcluido: TCheckBox
         Left = 249
@@ -3312,18 +3325,312 @@ object frmProjeto: TfrmProjeto
         Top = 216
         Width = 441
         Height = 145
-        Enabled = False
+        DataSource = DataModule1.DSProjeto
         TabOrder = 7
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        OnCellClick = DBGrid1CellClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'codproj'
+            Title.Caption = 'C'#243'digo'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'tituloproj'
+            Title.Caption = 'T'#237'tulo'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Descproj'
+            Title.Caption = 'Descri'#231#227'o'
+            Width = 500
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'inicioproj'
+            Title.Caption = 'Data Inicio'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'fimproj'
+            Title.Caption = 'Data Fim'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'conclproj'
+            Title.Caption = 'Conclu'#237'do'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'codrespproj'
+            Title.Caption = 'C'#243'd Respons'#225'vel'
+            Visible = True
+          end>
+      end
+      inline TFrame11: TFrame1
+        Left = 98
+        Top = 381
+        Width = 357
+        Height = 85
+        TabOrder = 8
+        ExplicitLeft = 98
+        ExplicitTop = 381
+        inherited DBNavigator1: TDBNavigator
+          Hints.Strings = ()
+        end
+        inherited btnNovo: TButton
+          OnClick = TFrame11btnNovoClick
+        end
+        inherited btnSalvar: TButton
+          OnClick = TFrame11btnSalvarClick
+        end
+        inherited btnEditar: TButton
+          OnClick = TFrame11btnEditarClick
+        end
+        inherited btnExcluir: TButton
+          OnClick = TFrame11btnExcluirClick
+        end
       end
     end
     object pgFuncProjeto: TTabSheet
       Caption = 'Funcion'#225'rios do Projeto'
       ImageIndex = 1
+      object lbProjetofun: TLabel
+        Left = 51
+        Top = 27
+        Width = 39
+        Height = 13
+        Caption = 'Projeto:'
+      end
+      object lbFuncionariofun: TLabel
+        Left = 51
+        Top = 56
+        Width = 59
+        Height = 13
+        Caption = 'Funcionario:'
+      end
+      object lbdesc: TLabel
+        Left = 55
+        Top = 96
+        Width = 160
+        Height = 13
+        Caption = 'Funcion'#225'rios atuando no projeto:'
+      end
+      object CBProjeto: TComboBox
+        Left = 116
+        Top = 24
+        Width = 373
+        Height = 21
+        ItemIndex = 0
+        TabOrder = 0
+        Text = 'sdfdsf'
+        Items.Strings = (
+          'sdfdsf'
+          'teste'
+          'projeto 1')
+      end
+      object CBFuncionario: TComboBox
+        Left = 116
+        Top = 51
+        Width = 373
+        Height = 21
+        ItemIndex = 1
+        TabOrder = 1
+        Text = 'asd'
+        Items.Strings = (
+          'Lucas2'
+          'asd'
+          'Lucas')
+      end
+      object DBGrid2: TDBGrid
+        Left = 51
+        Top = 129
+        Width = 438
+        Height = 246
+        DataSource = DataSource4
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnCellClick = DBGrid2CellClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'codproj'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'codfun'
+            Visible = True
+          end>
+      end
+      inline Framefun: TFrame1
+        Left = 87
+        Top = 381
+        Width = 357
+        Height = 85
+        TabOrder = 3
+        ExplicitLeft = 87
+        ExplicitTop = 381
+        inherited DBNavigator1: TDBNavigator
+          Hints.Strings = ()
+        end
+        inherited btnNovo: TButton
+          OnClick = FramefunbtnNovoClick
+        end
+        inherited btnSalvar: TButton
+          OnClick = FramefunbtnSalvarClick
+        end
+        inherited btnEditar: TButton
+          OnClick = FramefunbtnEditarClick
+        end
+        inherited btnExcluir: TButton
+          OnClick = FramefunbtnExcluirClick
+        end
+      end
     end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 516
+    Top = 261
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'codproj'
+      Control = edtCodigo
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'tituloproj'
+      Control = edtTitulo
+      Track = True
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'inicioproj'
+      Control = DateInicio
+      Track = True
+    end
+    object LinkControlToField4: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'fimproj'
+      Control = DateFinal
+      Track = True
+    end
+    object LinkControlToField5: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'conclproj'
+      Control = checkboxConcluido
+      Track = True
+    end
+    object LinkControlToField6: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'Descproj'
+      Control = lbObs
+      Track = False
+    end
+    object LinkFillControlToField2: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB3
+      FieldName = 'codfun'
+      Control = CBFuncionario
+      Track = True
+      FillDataSource = BindSourceDB2
+      FillValueFieldName = 'codfun'
+      FillDisplayFieldName = 'nomefun'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkFillControlToField3: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB3
+      FieldName = 'codproj'
+      Control = CBProjeto
+      Track = True
+      FillDataSource = BindSourceDB1
+      FillValueFieldName = 'codproj'
+      FillDisplayFieldName = 'tituloproj'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'codrespproj'
+      Control = cbResponsavel
+      Track = True
+      FillDataSource = BindSourceDB2
+      FillValueFieldName = 'codfun'
+      FillDisplayFieldName = 'nomefun'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object DataSource2: TDataSource
+    DataSet = DataModule1.FDProjeto
+    Left = 520
+    Top = 304
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSource = DataSource2
+    ScopeMappings = <>
+    Left = 520
+    Top = 400
+  end
+  object DataSource3: TDataSource
+    DataSet = DataModule1.FDFunProj
+    Left = 520
+    Top = 352
+  end
+  object BindSourceDB3: TBindSourceDB
+    DataSource = DataSource3
+    ScopeMappings = <>
+    Left = 520
+    Top = 448
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.FDFunProjDados
+    Left = 516
+    Top = 216
+  end
+  object DataSource4: TDataSource
+    DataSet = DataModule1.FDFuncionario
+    Left = 44
+    Top = 408
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSource = DataSource4
+    ScopeMappings = <>
+    Left = 264
+    Top = 248
   end
 end

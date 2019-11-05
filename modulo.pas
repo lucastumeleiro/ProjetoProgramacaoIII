@@ -20,6 +20,21 @@ type
     FDFuncionario: TFDQuery;
     DSCargo: TDataSource;
     DSFuncionario: TDataSource;
+    DSProjeto: TDataSource;
+    FDProjeto: TFDQuery;
+    FDProjetocodproj: TIntegerField;
+    FDProjetotituloproj: TWideStringField;
+    FDProjetoDescproj: TWideStringField;
+    FDProjetoinicioproj: TDateField;
+    FDProjetofimproj: TDateField;
+    FDProjetoconclproj: TBooleanField;
+    FDProjetocodrespproj: TIntegerField;
+    DSUsuario: TDataSource;
+    FDUsuario: TFDQuery;
+    FDUsuariocount: TLargeintField;
+    DSFunProj: TDataSource;
+    FDFunProj: TFDQuery;
+    FDFunProjDados: TFDQuery;
     FDFuncionariocodfun: TIntegerField;
     FDFuncionarionomefun: TWideStringField;
     FDFuncionariocpffun: TWideStringField;
@@ -29,6 +44,12 @@ type
     FDFuncionariosexofun: TWideStringField;
     FDFuncionariosalariofun: TSingleField;
     FDFuncionariocodcargofun: TIntegerField;
+    FDFuncionarioobsfun: TWideStringField;
+    FDFunProjcodproj: TIntegerField;
+    FDFunProjcodfun: TIntegerField;
+    FDFunProjDadostituloproj: TWideStringField;
+    FDFunProjDadosnomefun: TWideStringField;
+    DSFunProjDados: TDataSource;
   private
     { Private declarations }
   public

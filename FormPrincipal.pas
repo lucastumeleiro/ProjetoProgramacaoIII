@@ -31,6 +31,7 @@ type
     procedure btnCargoClick(Sender: TObject);
     procedure Projeto1Click(Sender: TObject);
     procedure btnProjetoClick(Sender: TObject);
+    procedure Relatrios1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,6 +80,11 @@ procedure TfrmFormPrincipal.Projeto1Click(Sender: TObject);
 begin
   frmProjeto:= TfrmProjeto.Create(self);
   frmProjeto.ShowModal;
+end;
+
+procedure TfrmFormPrincipal.Relatrios1Click(Sender: TObject);
+begin
+//s
 end;
 
 procedure TfrmFormPrincipal.Sair1Click(Sender: TObject);

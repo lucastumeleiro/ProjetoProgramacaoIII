@@ -553,8 +553,10 @@ object frmCargo: TfrmCargo
     Top = 45
     Width = 54
     Height = 21
+    Enabled = False
     NumbersOnly = True
     TabOrder = 0
+    Text = '3'
   end
   object edtNome: TEdit
     Left = 99
@@ -562,6 +564,7 @@ object frmCargo: TfrmCargo
     Width = 196
     Height = 21
     TabOrder = 1
+    Text = 'Gerente'
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -576,6 +579,19 @@ object frmCargo: TfrmCargo
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'codcargo'
+        Title.Caption = 'C'#243'digo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nomecargo'
+        Title.Caption = 'Nome'
+        Visible = True
+      end>
   end
   inline TFrame11: TFrame1
     Left = 0

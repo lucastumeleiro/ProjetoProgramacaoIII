@@ -459,7 +459,9 @@ object frmFuncionario: TfrmFuncionario
     Top = 21
     Width = 46
     Height = 21
+    Enabled = False
     TabOrder = 0
+    Text = '3'
   end
   object edtNome: TEdit
     Left = 205
@@ -468,6 +470,7 @@ object frmFuncionario: TfrmFuncionario
     Height = 21
     Enabled = False
     TabOrder = 1
+    Text = 'Lucas2'
   end
   object edtEndereco: TEdit
     Left = 87
@@ -476,6 +479,7 @@ object frmFuncionario: TfrmFuncionario
     Height = 21
     Enabled = False
     TabOrder = 5
+    Text = 'avasds'
   end
   object edtCPF: TMaskEdit
     Left = 87
@@ -486,13 +490,15 @@ object frmFuncionario: TfrmFuncionario
     EditMask = '!000\.000\.000\-00;1;_'
     MaxLength = 14
     TabOrder = 2
-    Text = '   .   .   -  '
+    Text = '065.165.165-15'
   end
   object edtNascimento: TDateTimePicker
     Left = 330
     Top = 48
     Width = 119
     Height = 21
+    Date = 34864.000000000000000000
+    Time = 34864.000000000000000000
     Enabled = False
     TabOrder = 3
   end
@@ -505,7 +511,7 @@ object frmFuncionario: TfrmFuncionario
     EditMask = '!\(99\)000-0000;1;_'
     MaxLength = 12
     TabOrder = 4
-    Text = '(  )   -    '
+    Text = '(11)111-1111'
   end
   object lbSexo: TRadioGroup
     Left = 32
@@ -525,7 +531,12 @@ object frmFuncionario: TfrmFuncionario
     Width = 158
     Height = 21
     Enabled = False
+    ItemIndex = 1
     TabOrder = 8
+    Text = 'Auxiliar'
+    Items.Strings = (
+      'Gerente'
+      'Auxiliar')
   end
   object edtSalario: TEdit
     Left = 514
@@ -534,6 +545,7 @@ object frmFuncionario: TfrmFuncionario
     Height = 21
     Enabled = False
     TabOrder = 6
+    Text = '1300'
   end
   inline TFrame11: TFrame1
     Left = 142
@@ -547,7 +559,9 @@ object frmFuncionario: TfrmFuncionario
       Hints.Strings = ()
     end
     inherited btnNovo: TButton
+      Left = 3
       OnClick = TFrame11btnNovoClick
+      ExplicitLeft = 3
     end
     inherited btnSalvar: TButton
       Enabled = False
@@ -568,8 +582,6 @@ object frmFuncionario: TfrmFuncionario
     Width = 601
     Height = 58
     Enabled = False
-    Lines.Strings = (
-      'Obs')
     TabOrder = 9
   end
   object DBGrid1: TDBGrid
@@ -585,6 +597,67 @@ object frmFuncionario: TfrmFuncionario
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'codfun'
+        Title.Caption = 'C'#243'digo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nomefun'
+        Title.Caption = 'Nome'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cpffun'
+        Title.Caption = 'CPF'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'datanascfun'
+        Title.Caption = 'Data Nasc.'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'endfun'
+        Title.Caption = 'Endere'#231'o'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'fonefun'
+        Title.Caption = 'Telefone'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'sexofun'
+        Title.Caption = 'Sexo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'salariofun'
+        Title.Caption = 'Salario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'codcargofun'
+        Title.Caption = 'C'#243'digo Cargo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'obsfun'
+        Title.Caption = 'Observa'#231#227'o'
+        Visible = True
+      end>
   end
   object DataSource1: TDataSource
     DataSet = DataModule1.FDFuncionario
@@ -671,6 +744,13 @@ object frmFuncionario: TfrmFuncionario
       FillExpressions = <>
       FillHeaderExpressions = <>
       FillBreakGroups = <>
+    end
+    object LinkControlToField8: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'obsfun'
+      Control = Obs
+      Track = False
     end
   end
   object BindSourceDB2: TBindSourceDB

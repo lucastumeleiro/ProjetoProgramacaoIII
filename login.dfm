@@ -3822,6 +3822,19 @@ object FrmLogin: TFrmLogin
     Flat = True
     OnClick = btn_loginClick
   end
+  object lbqtdlogin: TLabel
+    Left = 120
+    Top = 352
+    Width = 88
+    Height = 13
+    Caption = 'Quantidade Login:'
+  end
+  object lbqtd: TLabel
+    Left = 214
+    Top = 352
+    Width = 3
+    Height = 13
+  end
   object edt_usuario: TEdit
     Left = 157
     Top = 144
@@ -3863,5 +3876,24 @@ object FrmLogin: TFrmLogin
     PasswordChar = '*'
     TabOrder = 1
     OnExit = edt_senhaExit
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = DataModule1.FDUsuario
+    ScopeMappings = <>
+    Left = 432
+    Top = 304
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 396
+    Top = 301
+    object LinkPropertyToFieldCaption: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'count'
+      Component = lbqtd
+      ComponentProperty = 'Caption'
+    end
   end
 end

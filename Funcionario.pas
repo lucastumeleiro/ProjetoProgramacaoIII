@@ -46,6 +46,7 @@ type
     BindSourceDB2: TBindSourceDB;
     LinkFillControlToField1: TLinkFillControlToField;
     BindSourceDB3: TBindSourceDB;
+    LinkControlToField8: TLinkControlToField;
     procedure TFrame11btnNovoClick(Sender: TObject);
     procedure TFrame11btnSalvarClick(Sender: TObject);
     procedure TFrame11btnEditarClick(Sender: TObject);
@@ -73,9 +74,8 @@ uses modulo;
 procedure TfrmFuncionario.DBGrid1CellClick(Column: TColumn);
 begin
   Desabilita();
-  //trazer dados para nome
   TFrame11.btnNovo.Enabled:= TRUE;
-  TFrame11.btnSalvar.Enabled:= FALSE;
+  TFrame11.btnSalvar.Enabled:= TRUE;
   TFrame11.btnEditar.Enabled:= TRUE;
   TFrame11.btnExcluir.Enabled:= TRUE;
 end;
@@ -88,6 +88,7 @@ begin
   edtNascimento.Enabled:= FALSE;
   edtTelefone.Enabled:= FALSE;
   edtSalario.Enabled:= FALSE;
+  Obs.Enabled:= FALSE;
 end;
 
 procedure TfrmFuncionario.Habilita;
@@ -100,6 +101,7 @@ begin
   edtSalario.Enabled:= TRUE;
   lbSexo.Enabled:= TRUE;
   cbCargo.Enabled:= TRUE;
+  Obs.Enabled:= TRUE;
 end;
 
 procedure TfrmFuncionario.Limpa;
@@ -109,6 +111,7 @@ begin
   edtCPF.Clear;
   edtTelefone.Clear;
   edtSalario.Clear;
+  Obs.Clear;
 end;
 
 procedure TfrmFuncionario.TFrame11btnEditarClick(Sender: TObject);

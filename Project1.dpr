@@ -8,7 +8,8 @@ uses
   framebotoes in 'framebotoes.pas' {Frame1: TFrame},
   Funcionario in 'Funcionario.pas' {frmFuncionario},
   modulo in 'modulo.pas' {DataModule1: TDataModule},
-  Projeto in 'Projeto.pas' {frmProjeto};
+  Projeto in 'Projeto.pas' {frmProjeto},
+  Framebotoesproj in 'Framebotoesproj.pas' {Frame2: TFrame};
 
 {$R *.res}
 
